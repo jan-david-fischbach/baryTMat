@@ -1,0 +1,18 @@
+[project]
+name = "barytmat"
+version = "0.1.0"
+description = "A small library handling T-matrices in barycentric rational form compatible to the T-matrix data format."
+readme = "README.md"
+authors = [
+    { name = "Jan David Fischbach", email = "mail@jan-dav.id" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "diffaaable>=1.1.1",
+    "h5py>=3.13.0",
+    "treams>=0.4.5",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
