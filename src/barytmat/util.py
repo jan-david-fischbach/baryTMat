@@ -52,6 +52,8 @@ def baryT(z_j, f_j, w_j, T0):
     def T(k0):
         tmat_data = R([k0])[0]
         return treams.TMatrix(tmat_data, k0=k0, material=T0.material, basis=T0.basis, poltype=T0.poltype)
+    
+    return T
 
 def load_hdf5(filename, **kwargs):
     """Load a T-matrix in Barycentric Rational form from the given file
