@@ -6,7 +6,7 @@ import diffaaable
 import numpy as np
 import textwrap
 
-def save_hdf5(filename, z_j, f_j, w_j, T0, description="", **kwargs):
+def save_hdf5(filename, z_j, f_j, w_j, T0, description="", lunit="m", **kwargs):
     """Save Barycentric Rational Representation of the T-matrix to file
 
     Args:
@@ -22,7 +22,7 @@ def save_hdf5(filename, z_j, f_j, w_j, T0, description="", **kwargs):
     with h5py.File(filename, "w") as file:
         treams.io.save_hdf5(file, tms,
             keywords = "pole-expansion, barycentric-rational",
-            lunit = "m",
+            lunit = lunit,
             description = description + textwrap.dedent(
                 f"""
                 Attention: This T-matrix is in barycentric rational format. To evaluate it at arbitrary frequencies install `diffaaable` and use the following weights:
@@ -55,7 +55,7 @@ def baryT(z_j, f_j, w_j, T0):
     
     return T
 
-def load_hdf5(filename, **kwargs):
+def load_hdf5(filename, lunit="m", **kwargs):
     """Load a T-matrix in Barycentric Rational form from the given file
 
     Args:
@@ -66,7 +66,7 @@ def load_hdf5(filename, **kwargs):
     """
 
     with h5py.File(filename, "r") as file: 
-        tmats = treams.io.load_hdf5(file, **kwargs)
+        tmats = treams.io.load_hdf5(file, lunit=lunit, **kwargs)
         descr = file.attrs["description"]
 
     matches = re.findall(r"^w_j=.*$", descr, re.MULTILINE)
