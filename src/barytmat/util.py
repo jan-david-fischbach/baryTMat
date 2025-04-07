@@ -50,8 +50,13 @@ def baryT(z_j, f_j, w_j, T0):
     """
     R = diffaaable.tensor.tensor_baryrat(z_j, f_j, w_j)
     def T(k0):
-        tmat_data = R([k0])[0]
-        return treams.TMatrix(tmat_data, k0=k0, material=T0.material, basis=T0.basis, poltype=T0.poltype)
+        k0 = np.array(k0)
+        if k0.ndim > 0:
+            tmat_data = R(k0)
+            return np.vectorize(treams.TMatrix, otypes=[object])(tmat_data, k0=k0, material=T0.material, basis=T0.basis, poltype=T0.poltype)
+        else:
+            tmat_data = R([k0])[0]
+            return treams.TMatrix(tmat_data, k0=k0, material=T0.material, basis=T0.basis, poltype=T0.poltype)
     
     return T
 
