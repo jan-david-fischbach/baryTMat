@@ -28,7 +28,7 @@ def save_hdf5(filename, z_j, f_j, w_j, T0, description="", lunit="m", **kwargs):
                 Attention: This T-matrix is in barycentric rational format. To evaluate it at arbitrary frequencies install `diffaaable` and use the following weights:
                 w_j=np.{np.array_repr(w_j, precision=16, max_line_width=np.inf)}
 
-                A small library to handle T-matrices in barycentric rational representation can be found [here](TODO)
+                A small library to handle T-matrices in barycentric rational representation can be found [here](https://github.com/jan-david-fischbach/baryTMat)
                 """
             ),
             **kwargs
