@@ -24,6 +24,12 @@ The method is described in:
 pip install barytmat
 ```
 
+or 
+
+```bash
+uv add barytmat
+```
+
 ## Usage
 
 ```python
