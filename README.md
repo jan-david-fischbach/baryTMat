@@ -1,5 +1,7 @@
 # barytmat
 
+[![PyPI version](https://img.shields.io/pypi/v/barytmat.svg)](https://pypi.org/project/barytmat/)
+
 A small Python library for saving and loading T-matrices in **barycentric rational form** (equivalent to the pole-expansion form), stored in a format compatible with the [daphona T-matrix database](https://arxiv.org/abs/2602.02101).
 
 ## Background
